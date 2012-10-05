@@ -51,14 +51,14 @@ class tx_synthesis_compilefiles extends tx_synthesis_sectionbase {
 	 * Creates all files that are necessary for an extension
 	 * 	- ext_localconf.php
 	 * 	- ext_tables.php
-	 * 	- tca.php
+	 * 	- Configuration/TCA/tca.php
 	 * 	- ext_tables.sql
-	 * 	- locallang.xml
-	 * 	- locallang_db.xml
-	 * 	- doc/wizard_form.html
-	 * 	- doc/wizard_form.dat
-	 * 	- ChangeLog
-	 * 	- README.txt
+	 * 	- Resources/Private/Language/locallang.xml
+	 * 	- Resources/Private/Language/locallang_db.xml
+	 * 	- Configuration/Synthesis/wizard_form.html
+	 * 	- Configuration/Synthesis/wizard_form.dat
+	 * 	- Documentation/ChangeLog
+	 * 	- Documentation/README.txt
 	 * 	- ext_icon.gif
 	 *
 	 * @param	string		$extKey: the extension key
@@ -119,7 +119,7 @@ class tx_synthesis_compilefiles extends tx_synthesis_sectionbase {
 		}
 			// Write the tca.php file:
 		if (count($this->ext_tca))	{
-			$this->addFileToFileArray('tca.php',trim($this->wrapBody('
+			$this->addFileToFileArray('Configuration/TCA/tca.php',trim($this->wrapBody('
 				<?php
 				if (!defined(\'TYPO3_MODE\')) {
 					die (\'Access denied.\');
@@ -144,7 +144,7 @@ class tx_synthesis_compilefiles extends tx_synthesis_sectionbase {
 
 			// The form used to generate the extension:
 		$this->dontPrintImages = 1;
-		$this->addFileToFileArray('doc/wizard_form.html',trim($this->sPS('
+		$this->addFileToFileArray('Configuration/Synthesis/wizard_form.html',trim($this->sPS('
 			<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
 			<html>
@@ -158,15 +158,15 @@ class tx_synthesis_compilefiles extends tx_synthesis_sectionbase {
 			</body>
 			</html>
 		')));
-		$this->addFileToFileArray('doc/wizard_form.dat',serialize($this->wizArray));
+		$this->addFileToFileArray('Configuration/Synthesis/wizard_form.dat',serialize($this->wizArray));
 
-		$this->addFileToFileArray('ChangeLog',
+		$this->addFileToFileArray('Documentation/ChangeLog',
 date('Y-m-d') . '  ' . $this->userField('name') . '  <' . $this->userField('email') . '>
 
 	* Initial code generated with synthesis
 '		);
 
-		$this->addFileToFileArray('README.txt','
+		$this->addFileToFileArray('Documentation/README.txt','
 Feel free to add some documentation or simply add a link to the online manual.
 '		);
 

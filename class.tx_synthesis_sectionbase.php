@@ -667,7 +667,7 @@ class tx_synthesis_sectionbase {
 			}
 		}
 
-		$this->addFileToFileArray($filename,$this->createXML($outputArray));
+		$this->addFileToFileArray('Resources/Private/Language/'.$filename,$this->createXML($outputArray));
 	}
 
 	/**
