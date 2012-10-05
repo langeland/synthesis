@@ -538,8 +538,8 @@ class tx_synthesis_section_tables extends tx_synthesis_section_fields {
 			' ) );
 		}
 		// Add dynamic config file.
-		$ctrl [] = '\'dynamicConfigFile\' => t3lib_extMgm::extPath($_EXTKEY) . \'tca.php\',';
-		$ctrl [] = '\'iconfile\'          => t3lib_extMgm::extRelPath($_EXTKEY) . \'icon_' . $tableName . '.gif\',';
+		$ctrl [] = '\'dynamicConfigFile\' => t3lib_extMgm::extPath($_EXTKEY) . \'Configuration/TCA/tca.php\',';
+		$ctrl [] = '\'iconfile\'          => t3lib_extMgm::extRelPath($_EXTKEY) . \'Resources/Public/Icons/icon_' . $tableName . '.gif\',';
 		
 		if ($config ['allow_on_pages']) {
 			$this->wizard->ext_tables [] = $this->sPS ( '

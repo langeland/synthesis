@@ -548,7 +548,7 @@ class tx_synthesis_sectionbase {
 				}
 			}
 		}
-		return 'LLL:EXT:' . $this->wizard->extKey . '/locallang_db.xml:' . $LLkey;
+		return 'LLL:EXT:' . $this->wizard->extKey . '/Resources/Private/Language/locallang_db.xml:' . $LLkey;
 	}
 
 
