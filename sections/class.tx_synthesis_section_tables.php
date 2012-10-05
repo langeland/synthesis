@@ -627,7 +627,7 @@ class tx_synthesis_section_tables extends tx_synthesis_section_fields {
 		', 2 );
 		
 		// Add wizard icon
-		$this->addFileToFileArray ( 'icon_' . $tableName . '.gif', t3lib_div::getUrl ( t3lib_extMgm::extPath ( 'synthesis' ) . 'res/' . $config ['defIcon'] ) );
+		$this->addFileToFileArray ( 'Resources/Public/Icons/icon_' . $tableName . '.gif', t3lib_div::getUrl ( t3lib_extMgm::extPath ( 'synthesis' ) . 'res/' . $config ['defIcon'] ) );
 	}
 
 }

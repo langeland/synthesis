@@ -291,12 +291,13 @@ class tx_synthesis_sectionbase {
 		} else {
 			switch ($type) {
 				case 'class' :
-					return 'tx_' . str_replace ( '_', '', $extKey ) . ($suffix ? '_' . $suffix : '');
+					return 'Tx_' . str_replace ( '_', '', $extKey ) . ($suffix ? '_' . $suffix : '');
 				case 'tables' :
 				case 'fields' :
-					return 'tx_' . str_replace ( '_', '', $extKey ) . ($suffix ? '_' . $suffix : '');
+					//return 'Tx_' . str_replace ( '_', '', $extKey ) . ($suffix ? '_' . $suffix : '');
+					return 'Tx_' . t3lib_div::underscoredToUpperCamelCase($extKey). ($suffix ? '_' . $suffix : '');
 				case 'module' :
-					return 'tx' . str_replace ( '_', '', $extKey ) . $suffix;
+					return 'Tx' . str_replace ( '_', '', $extKey ) . $suffix;
 			}
 		}
 	}
