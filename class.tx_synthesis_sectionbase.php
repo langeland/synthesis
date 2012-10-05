@@ -283,6 +283,7 @@ class tx_synthesis_sectionbase {
 				case 'class' :
 					return 'user_' . str_replace ( '_', '', $extKey ) . ($suffix ? '_' . $suffix : '');
 				case 'tables' :
+					return 'user_' . str_replace ( '_', '', $extKey ) . '_domain_model' . ($suffix ? '_' . $suffix : '');
 				case 'fields' :
 					return 'user_' . str_replace ( '_', '', $extKey ) . ($suffix ? '_' . $suffix : '');
 				case 'module' :
@@ -293,9 +294,9 @@ class tx_synthesis_sectionbase {
 				case 'class' :
 					return 'Tx_' . str_replace ( '_', '', $extKey ) . ($suffix ? '_' . $suffix : '');
 				case 'tables' :
+					return 'tx_' . str_replace ( '_', '', $extKey ) . '_domain_model' . ($suffix ? '_' . $suffix : '');
 				case 'fields' :
-					//return 'Tx_' . str_replace ( '_', '', $extKey ) . ($suffix ? '_' . $suffix : '');
-					return 'Tx_' . t3lib_div::underscoredToUpperCamelCase($extKey). ($suffix ? '_' . $suffix : '');
+					return 'Tx_' . str_replace ( '_', '', $extKey ) . ($suffix ? '_' . $suffix : '');
 				case 'module' :
 					return 'Tx' . str_replace ( '_', '', $extKey ) . $suffix;
 			}
