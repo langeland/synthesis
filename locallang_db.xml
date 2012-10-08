@@ -9,8 +9,8 @@
     </meta>
     <data type="array">
         <languageKey index="default" type="array">
-            <label index="moduleFunction.tx_synthesis_modfunc1">Create new Extension</label>
-            <label index="moduleFunction.tx_synthesis_modfunc2">Edit in Kickstarter</label>
+            <label index="moduleFunction.tx_synthesis_modfunc1">Synthesizes new Extension</label>
+            <label index="moduleFunction.tx_synthesis_modfunc2">Edit in synthesizeser</label>
         </languageKey>
     </data>
 </T3locallang>

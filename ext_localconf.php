@@ -27,6 +27,14 @@ $TYPO3_CONF_VARS ['EXTCONF'] ['synthesis'] ['sections'] ['tables'] = array (
 		'image' => 'EXT:synthesis/icons/cm.png' 
 );
 
+// model
+$TYPO3_CONF_VARS ['EXTCONF'] ['synthesis'] ['sections'] ['model'] = array (
+		'classname' => 'tx_synthesis_section_model',
+		'filepath' => 'EXT:synthesis/sections/class.tx_synthesis_section_model.php',
+		'title' => 'New Object Model',
+		'description' => 'Add object model.',
+);
+
 // fields
 $TYPO3_CONF_VARS ['EXTCONF'] ['synthesis'] ['sections'] ['fields'] = array (
 		'classname' => 'tx_synthesis_section_fields',
@@ -92,6 +100,7 @@ $TYPO3_CONF_VARS ['EXTCONF'] ['synthesis'] ['sections'] ['tsconfig'] = array (
 		'singleItem' => true 
 );
 
+unset($TYPO3_CONF_VARS ['EXTCONF'] ['synthesis'] ['sections'] ['tables']);
 unset($TYPO3_CONF_VARS ['EXTCONF'] ['synthesis'] ['sections'] ['fields']);
 unset($TYPO3_CONF_VARS ['EXTCONF'] ['synthesis'] ['sections'] ['pi']);
 unset($TYPO3_CONF_VARS ['EXTCONF'] ['synthesis'] ['sections'] ['module']);

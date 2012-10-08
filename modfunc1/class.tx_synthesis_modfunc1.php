@@ -41,7 +41,7 @@ class tx_synthesis_modfunc1 extends t3lib_extobjbase {
 		$synthesis = $this->initKickstarter();
 		$content = $synthesis->mgm_wizard();
 
-		return '</form>'.$this->pObj->doc->section('Kickstarter wizard',$content,0,1).'<form>';
+		return '</form>'.$this->pObj->doc->section('Extension synthesizeser',$content,0,1).'<form>';
 	}
 
 	/**

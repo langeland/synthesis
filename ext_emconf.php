@@ -11,8 +11,8 @@
 ########################################################################
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'Extension Kickstarter',
-	'description' => 'Creates a framework for a new extension',
+	'title' => 'Extension synthesizeser',
+	'description' => 'Synthesizes a framework for a new extension',
 	'category' => 'be',
 	'shy' => 0,
 	'version' => '0.5.3',

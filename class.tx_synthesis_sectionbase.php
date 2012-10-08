@@ -281,7 +281,7 @@ class tx_synthesis_sectionbase {
 			$extKey = substr ( $extKey, 5 );
 			switch ($type) {
 				case 'class' :
-					return 'user_' . str_replace ( '_', '', $extKey ) . ($suffix ? '_' . $suffix : '');
+					return 'user_' . t3lib_div::underscoredToUpperCamelCase ( $extKey ) . ($suffix ? '_' . $suffix : '');
 				case 'tables' :
 					return 'user_' . str_replace ( '_', '', $extKey ) . '_domain_model' . ($suffix ? '_' . $suffix : '');
 				case 'fields' :
@@ -292,7 +292,7 @@ class tx_synthesis_sectionbase {
 		} else {
 			switch ($type) {
 				case 'class' :
-					return 'Tx_' . str_replace ( '_', '', $extKey ) . ($suffix ? '_' . $suffix : '');
+					return 'Tx_' . t3lib_div::underscoredToUpperCamelCase ( $extKey ) . ($suffix ? '_' . $suffix : '');
 				case 'tables' :
 					return 'tx_' . str_replace ( '_', '', $extKey ) . '_domain_model' . ($suffix ? '_' . $suffix : '');
 				case 'fields' :
@@ -300,6 +300,16 @@ class tx_synthesis_sectionbase {
 				case 'module' :
 					return 'Tx' . str_replace ( '_', '', $extKey ) . $suffix;
 			}
+		}
+	}
+
+
+	function returnClassName($extKey, $classType, $name) {
+		switch ($classType) {
+			case 'model' :
+				return 'Tx_' . t3lib_div::underscoredToUpperCamelCase ( $extKey ) . '_Domain_Model_' . $name;
+			case 'repository' :
+				return 'Tx_' . t3lib_div::underscoredToUpperCamelCase ( $extKey ) . '_Domain_Repository_' . $name . 'Repository';
 		}
 	}
 
