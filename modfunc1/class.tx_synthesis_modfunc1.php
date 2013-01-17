@@ -28,21 +28,21 @@
  */
 
 
-
-require_once(PATH_t3lib.'class.t3lib_extobjbase.php');
-require_once(t3lib_extMgm::extPath('synthesis').'class.tx_synthesis_wizard.php');
-
+require_once (PATH_t3lib . 'class.t3lib_extobjbase.php');
+require_once (t3lib_extMgm::extPath ( 'synthesis' ) . 'class.tx_synthesis_wizard.php');
 class tx_synthesis_modfunc1 extends t3lib_extobjbase {
+
 
 	/**
 	 * Main method of modfunc1
 	 */
-	function main()	{
-		$synthesis = $this->initKickstarter();
-		$content = $synthesis->mgm_wizard();
-
-		return '</form>'.$this->pObj->doc->section('Extension synthesizeser',$content,0,1).'<form>';
+	function main() {
+		$synthesis = $this->initKickstarter ();
+		$content = $synthesis->mgm_wizard ();
+		
+		return '</form>' . $this->pObj->doc->section ( 'Extension synthesizeser', $content, 0, 1 ) . '<form>';
 	}
+
 
 	/**
 	 * Initializing the Kickstarter
@@ -50,32 +50,44 @@ class tx_synthesis_modfunc1 extends t3lib_extobjbase {
 	 * @return	Instance of synthesis
 	 */
 	function initKickstarter() {
-		$synthesis = t3lib_div::makeInstance('tx_synthesis_wizard');
-		$synthesis->color = array($this->pObj->doc->bgColor5,$this->pObj->doc->bgColor4,$this->pObj->doc->bgColor);
-		$synthesis->siteBackPath = $this->pObj->doc->backPath.'../';
+		$synthesis = t3lib_div::makeInstance ( 'tx_synthesis_wizard' );
+		/*
+		$synthesis->color = array (
+				$this->pObj->doc->bgColor5,
+				$this->pObj->doc->bgColor4,
+				$this->pObj->doc->bgColor 
+		);
+		*/
+		$synthesis->color = array (
+				'#ff0000',
+				'#00FF00',
+				'#0000FF'
+		);
+		$synthesis->siteBackPath = $this->pObj->doc->backPath . '../';
 		$synthesis->pObj = &$this->pObj;
 		$synthesis->EMmode = 1;
-
+		
 		return $synthesis;
 	}
+
 }
-
-
 class tx_synthesis_modfunc2 extends tx_synthesis_modfunc1 {
+
 
 	/**
 	 * Main method of modfunc2
 	 *
 	 */
-	function main()	{
-		$synthesis = $this->initKickstarter();
-		if(!$synthesis->modData['wizArray_ser']) {
-			$synthesis->modData['wizArray_ser'] = base64_encode($this->getWizardFormDat());
+	function main() {
+		$synthesis = $this->initKickstarter ();
+		if (! $synthesis->modData ['wizArray_ser']) {
+			$synthesis->modData ['wizArray_ser'] = base64_encode ( $this->getWizardFormDat () );
 		}
-		$content = $synthesis->mgm_wizard();
-
-		return '</form>'.$this->pObj->doc->section('Kickstarter wizard',$content,0,1).'<form>';
+		$content = $synthesis->mgm_wizard ();
+		
+		return '</form>' . $this->pObj->doc->section ( 'Synthesizeser wizard', $content, 0, 1 ) . '<form>';
 	}
+
 
 	/**
 	 * fetch form data from file (doc/wizard_form.dat) if it is present
@@ -83,17 +95,17 @@ class tx_synthesis_modfunc2 extends tx_synthesis_modfunc1 {
 	 * @return	Formdata if the file was found, otherwise an empty string
 	 */
 	function getWizardFormDat() {
-		list($list,$cat)=$this->pObj->getInstalledExtensions();
-		$absPath = $this->pObj->getExtPath($this->pObj->CMD['showExt'],$list[$this->pObj->CMD['showExt']]['type']);
-
-		return @is_file($absPath.'doc/wizard_form.dat') ? t3lib_div::getUrl($absPath.'doc/wizard_form.dat') : '';
+		list ( $list, $cat ) = $this->pObj->getInstalledExtensions ();
+		$absPath = $this->pObj->getExtPath ( $this->pObj->CMD ['showExt'], $list [$this->pObj->CMD ['showExt']] ['type'] );
+		
+		return @is_file ( $absPath . 'Configuration/Synthesis/wizard_form.dat' ) ? t3lib_div::getUrl ( $absPath . 'Configuration/Synthesis/wizard_form.dat' ) : '';
 	}
+
 }
 
 
-
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/synthesis/modfunc1/class.tx_synthesis_modfunc1.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/synthesis/modfunc1/class.tx_synthesis_modfunc1.php']);
+if (defined ( 'TYPO3_MODE' ) && $TYPO3_CONF_VARS [TYPO3_MODE] ['XCLASS'] ['ext/synthesis/modfunc1/class.tx_synthesis_modfunc1.php']) {
+	include_once ($TYPO3_CONF_VARS [TYPO3_MODE] ['XCLASS'] ['ext/synthesis/modfunc1/class.tx_synthesis_modfunc1.php']);
 }
 
 ?>
